@@ -1,0 +1,56 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md">
+        <h2 class="">Lista de Proyectos</h2>
+        <a href="{% url 'create' %}" class="btn btn-primary py-2 mt-2 me-2">Crear Proyecto</a>
+        <a href="{% url 'logout' %}" class="btn btn-outline-secondary py-2 mt-2 me-2 float-end">Cerrar Sesión</a>
+    </div>
+
+</div>
+
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center col-3">Imagen del Proyecto</th>
+            <th class="text-center">Nombre del Proyecto</th>
+            <th class="text-center">Descripción del Proyecto</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proyecto in proyectos %}
+        <tr>
+            <td class="text-center">{{proyecto.foto}}</td>
+            <td>{{proyecto.titulo_proyecto}}</td>
+            <td>{{proyecto.descripcion_proyecto}}</td>
+            <td class="text-center">
+                <a href="/delete/{{ proyecto.id }}" class="btn btn-outline-danger">Eliminar</a>
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<h3 class="mt-5">Registro de visitas</h3>
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center">Visita</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for visita in visitas %}
+        <tr>
+            <td class="text-center">{{visita}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}
