@@ -1,1 +1,1 @@
-web: gunicorn 'marie-app.wsgi'
+web: python manage.py migrate && gunicorn projectos.wsgi
