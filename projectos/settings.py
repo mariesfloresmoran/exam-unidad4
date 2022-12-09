@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://exam-unidad4-production.up.railway.app']
+
 
 # Application definition
 
